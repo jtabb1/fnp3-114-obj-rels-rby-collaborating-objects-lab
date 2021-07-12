@@ -1,3 +1,5 @@
+
+
 class Artist
 
   @@all = []
@@ -21,13 +23,24 @@ class Artist
     song.artist = self
   end
 
-  def print_songs
-    songs.each {|et| puts et.name}
+end
+
+
+class Song
+
+  attr_accessor :name
+
+  @@all = []
+
+  def initialize(name)
+    @name = name
+    @@all << self
   end
 
-  def self.find_or_create_by_name(name)
-    artist = self.all.find{|et| et.name == name}
-    artist ||= Artist.new(name)
+  def self.all
+    @@all
   end
 
 end
+
+
